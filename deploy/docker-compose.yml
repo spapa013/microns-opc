@@ -38,7 +38,7 @@ services:
     volumes:
       - ..:/srcdir
     entrypoint:
-      - sh
+      - bash
       - -lc
       - >
         set -Eeuo pipefail &&
@@ -48,3 +48,5 @@ services:
         exec /root/.local/bin/uv "$@"
       - --
     command: ["--help"]
+    tty: false
+    stdin_open: false
