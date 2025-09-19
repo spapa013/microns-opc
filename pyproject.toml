@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "microns-opc"                     # distribution name (pip install microns-opc)
+dynamic = ["version"]
+description = "Analysis for OPC-associated neurons in the MICrONS dataset"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+
+dependencies = [
+  "numpy",
+  "scipy",
+  "pandas",
+  "matplotlib",
+  "jupyterlab",
+  "ipykernel",
+]
+
+[tool.hatch.version]
+source = "vcs"                           # derive version from git tags
+
+# Tell hatch where your package lives (top-level layout)
+[tool.hatch.build.targets.wheel]
+packages = ["microns_opc"]
+
+# Optional: uv niceties
+[tool.uv]
+managed = true
+dev-dependencies = ["pytest", "ruff", "black", "mypy"]
