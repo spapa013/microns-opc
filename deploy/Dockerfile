@@ -27,6 +27,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 git ca-certificates \
  && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /workdir
 COPY --from=builder /tmp/venv /opt/venv
 ENV PATH="/opt/venv/bin:${PATH}"
